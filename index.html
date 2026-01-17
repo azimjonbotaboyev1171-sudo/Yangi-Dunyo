@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --main-color: #248bcf; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--tg-theme-secondary-bg-color); color: var(--tg-theme-text-color); margin: 0; padding: 15px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .card { background: var(--tg-theme-bg-color); padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid rgba(0,0,0,0.1); }
+        .card i { font-size: 24px; color: var(--main-color); margin-bottom: 10px; }
+        .card span { display: block; font-size: 14px; font-weight: 600; }
+        .header { background: var(--main-color); color: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
+        .balance { font-size: 28px; font-weight: bold; }
+        .trial { font-size: 12px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="trial">Sinov muddati: 28 kun qoldi</div>
+        <div style="margin-top: 5px;">Bugungi foyda:</div>
+        <div class="balance">4 500 000 UZS</div>
+    </div>
+
+    <div class="grid">
+        <div class="card" onclick="openMenu('kassa')"><i class="fas fa-cash-register"></i><span>Kassa</span></div>
+        <div class="card" onclick="openMenu('ombor')"><i class="fas fa-boxes-stacked"></i><span>Ombor</span></div>
+        <div class="card" onclick="openMenu('nasiya')"><i class="fas fa-book-open"></i><span>Nasiya</span></div>
+        <div class="card" onclick="openMenu('hisobot')"><i class="fas fa-chart-line"></i><span>Hisobot</span></div>
+        <div class="card" onclick="openMenu('xodimlar')"><i class="fas fa-users-gear"></i><span>Xodimlar</span></div>
+        <div class="card" onclick="openMenu('settings')"><i class="fas fa-cog"></i><span>Sozlamalar</span></div>
+    </div>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        function openMenu(type) {
+            tg.HapticFeedback.impactOccurred('medium');
+            tg.sendData(JSON.stringify({action: "open_menu", menu: type}));
+        }
+    </script>
+</body>
+</html>
