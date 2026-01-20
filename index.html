@@ -8,25 +8,27 @@
     <title>Yangi Dunyo - Global Imkoniyatlar va AI Platformasi</title>
     <meta name="description" content="Yangi Dunyo - talabalar va mutaxassislar uchun bilim almashish, vaqt valyutasi va AI tahliliy tizimi.">
     <meta name="keywords" content="ish topish, talabalar uchun ish, AI analitika, vaqt almashish, yangi dunyo, masofaviy ish">
-    <meta name="robots" content="index, follow">
-
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { margin: 0; background: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; }
         .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; margin-bottom: 20px; }
-        .neon-text { color: #38bdf8; text-shadow: 0 0 10px rgba(56,189,248,0.5); font-weight: bold; font-size: 28px; }
-        .btn-main { background: linear-gradient(90deg, #38bdf8, #818cf8); border: none; padding: 15px 30px; border-radius: 12px; color: white; cursor: pointer; font-weight: bold; text-transform: uppercase; }
+        .neon-text { color: #38bdf8; text-shadow: 0 0 10px rgba(56,189,248,0.5); font-weight: bold; }
+        .btn-main { background: linear-gradient(90deg, #38bdf8, #818cf8); border: none; padding: 15px 30px; border-radius: 12px; color: white; cursor: pointer; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(56,189,248,0.4); }
+        .map-point { position: absolute; width: 10px; height: 10px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 10px #38bdf8; animation: pulse-map 2s infinite; }
+        @keyframes pulse-map { 0% { transform: scale(1); opacity: 1; } 70% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header style="text-align: center; margin-bottom: 60px;">
-            <h1 class="neon-text">YANGI DUNYO</h1>
+            <h1 class="neon-text" style="font-size: 48px;">YANGI DUNYO</h1>
             <p style="opacity: 0.8;">Kelajak texnologiyalari bilan hayotingizni tartibga soling</p>
-            <button class="btn-main">Hoziroq Ro'yxatdan o'ting</button>
+            <button class="btn-main" onclick="openLogin()">Hoziroq Ro'yxatdan o'ting</button>
         </header>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
@@ -39,116 +41,88 @@
             <section class="glass-card">
                 <h2>🤝 Skill-Exchange</h2>
                 <p>O'z bilimingizni vaqtga almashtiring va dunyo bo'ylab soting.</p>
-                <button class="btn-main" style="width: 100%;">Vakansiyalarni ko'rish</button>
+                <button class="btn-main" style="width: 100%;" onclick="alert('Tez orada ishlar ro\'yxati yuklanadi!')">Vakansiyalarni ko'rish</button>
             </section>
+
             <section class="glass-card" style="grid-column: 1 / -1; border-left: 5px solid #38bdf8;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 style="margin: 0;"><i class="fas fa-globe-americas"></i> Global AI Pulse <span style="font-size: 12px; color: #22c55e;">● LIVE</span></h2>
-        <span id="current-date" style="opacity: 0.7;"></span>
-        <section class="glass-card" style="margin-top: 30px; text-align: center; overflow: hidden;">
-    <h3><i class="fas fa-map-marked-alt"></i> Dunyo Bo'ylab Yangi Dunyo Foydalanuvchilari</h3>
-    <p style="font-size: 14px; opacity: 0.7;">Hozirda 45 ta davlatdan foydalanuvchilar bizga qo'shildi</p>
-    
-    <div style="position: relative; margin-top: 20px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" style="width: 100%; opacity: 0.2; filter: invert(1);" alt="World Map">
-        
-        <div class="map-point" style="top: 45%; left: 65%;"></div> <div class="map-point" style="top: 40%; left: 25%;"></div> <div class="map-point" style="top: 35%; left: 52%;"></div> <div class="map-point" style="top: 60%; left: 80%;"></div> </div>
-</section>
+                <h2><i class="fas fa-globe-americas"></i> Global AI Pulse <span style="font-size: 12px; color: #22c55e;">● LIVE</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
+                        <span style="color: #38bdf8; font-size: 12px; font-weight: bold;">📈 IQTISODIYOT</span>
+                        <p style="font-size: 14px;">Global bozorlarda "Micro-work" tizimi 30% ga o'sdi.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
+                        <span style="color: #a855f7; font-size: 12px; font-weight: bold;">🤖 TEXNOLOGIYA</span>
+                        <p style="font-size: 14px;">AI Biohacking algoritmlari ommalashmoqda.</p>
+                    </div>
+                </div>
+            </section>
 
-<style>
-    .map-point {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: #38bdf8;
-        border-radius: 50%;
-        box-shadow: 0 0 10px #38bdf8;
-        animation: pulse-map 2s infinite;
-    }
-
-    @keyframes pulse-map {
-        0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); }
-        70% { transform: scale(1.5); opacity: 0.5; box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
-        100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
-    }
-</style>
-    </div>
-    
-    <div class="news-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-        <div class="news-item" style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
-            <span class="neon-text" style="font-size: 12px;">📈 IQTISODIYOT</span>
-            <p style="font-size: 14px; margin: 5px 0;">Global bozorlarda "Micro-work" tizimi 30% ga o'sdi. Talabalar uchun masofaviy daromad imkoniyatlari kengaymoqda.</p>
-        </div>
-        
-        <div class="news-item" style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
-            <span class="neon-text" style="font-size: 12px; color: #a855f7;">🤖 TEXNOLOGIYA</span>
-            <p style="font-size: 14px; margin: 5px 0;">AI yordamida 100 yillik umr ko'rish bo'yicha yangi "Biohacking" algoritmlari ommalashmoqda.</p>
-        </div>
-
-        <div class="news-item" style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 10px;">
-            <span class="neon-text" style="font-size: 12px; color: #22c55e;">⏳ VAQT BOSHQARUVI</span>
-            <p style="font-size: 14px; margin: 5px 0;">Dunyo bo'ylab "Micro-learning" universitet diplomlaridan ko'ra ko'proq qadrlana boshladi.</p>
+            <section class="glass-card" style="grid-column: 1 / -1; text-align: center;">
+                <h3><i class="fas fa-map-marked-alt"></i> Dunyo Bo'ylab Yangi Dunyo</h3>
+                <div style="position: relative; margin-top: 20px; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 20px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" style="width: 100%; opacity: 0.2; filter: invert(1);" alt="Map">
+                    <div class="map-point" style="top: 45%; left: 65%;"></div> <div class="map-point" style="top: 40%; left: 25%;"></div> <div class="map-point" style="top: 35%; left: 52%;"></div> </div>
+            </section>
         </div>
     </div>
-    <p style="margin-top: 15px; font-size: 12px; opacity: 0.5; text-align: center;">* Ma'lumotlar Yangi Dunyo AI serverlari tomonidan sintez qilingan</p>
-</section>
+
+    <div id="login-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#1e293b; border:1px solid #38bdf8; padding:30px; border-radius:15px; z-index:2000; width:300px; box-shadow: 0 0 30px rgba(0,0,0,0.8);">
+        <h3 style="margin-top:0;">Tizimga kirish</h3>
+        <input type="email" placeholder="Email" style="width:90%; margin-bottom:10px; padding:10px; background:#0f172a; border:1px solid #334155; color:white; border-radius: 5px;">
+        <input type="password" placeholder="Parol" style="width:90%; margin-bottom:20px; padding:10px; background:#0f172a; border:1px solid #334155; color:white; border-radius: 5px;">
+        <button onclick="closeLogin()" style="width:100%; padding:10px; background:#38bdf8; border:none; color:white; font-weight:bold; cursor:pointer; border-radius: 5px;">Yuborish</button>
+    </div>
+
+    <div id="ai-chat" style="position: fixed; bottom: 20px; right: 20px; width: 300px; z-index: 1000;">
+        <button onclick="toggleChat()" style="background: linear-gradient(90deg, #38bdf8, #818cf8); border: none; width: 60px; height: 60px; border-radius: 50%; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); float: right;">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="chat-window" style="display: none; background: #1e293b; border: 1px solid #38bdf8; border-radius: 15px; margin-bottom: 75px; overflow: hidden;">
+            <div style="background: #38bdf8; padding: 12px; font-weight: bold;">🤖 Yangi Dunyo AI</div>
+            <div id="chat-content" style="height: 200px; padding: 15px; overflow-y: auto; font-size: 13px;">
+                <p>AI: Salom! Men Yangi Dunyo AI yordamchisiman. Sizga qanday yordam kerak?</p>
+            </div>
+            <div style="padding: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex;">
+                <input id="user-input" type="text" placeholder="Savol..." style="flex: 1; background: transparent; border: none; color: white; outline: none;">
+                <button onclick="sendMessage()" style="background: transparent; border: none; color: #38bdf8; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+            </div>
         </div>
     </div>
 
     <script>
+        // Chart
         const ctx = document.getElementById('mainChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['AI', 'Tech', 'Marketing', 'Design'],
-                datasets: [{ label: 'Talab', data: [95, 80, 60, 75], backgroundColor: '#38bdf8' }]
-            }
-        });
-    </script>
-    <div id="ai-chat" style="position: fixed; bottom: 20px; right: 20px; width: 300px; z-index: 1000;">
-    <button onclick="toggleChat()" style="background: linear-gradient(90deg, #38bdf8, #818cf8); border: none; width: 60px; height: 60px; border-radius: 50%; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); float: right;">
-        <i class="fas fa-robot"></i>
-    </button>
+        new Chart(ctx, { type: 'bar', data: { labels: ['AI', 'Tech', 'Design'], datasets: [{ label: 'Talab', data: [95, 80, 75], backgroundColor: '#38bdf8' }] } });
 
-    <div id="chat-window" style="display: none; background: #1e293b; border: 1px solid #38bdf8; border-radius: 15px; margin-bottom: 70px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
-        <div style="background: #38bdf8; padding: 15px; color: white; font-weight: bold;">
-            🤖 Yangi Dunyo AI
-        </div>
-        <div id="chat-content" style="height: 250px; padding: 15px; overflow-y: auto; font-size: 14px; color: #f8fafc;">
-            <p><strong>AI:</strong> Salom! Men "Yangi Dunyo" tizimining aqlli yordamchisiman. Sizga qanday ish yoki bilim topib beray?</p>
-        </div>
-        <div style="padding: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex;">
-            <input id="user-input" type="text" placeholder="Savol yozing..." style="flex: 1; background: transparent; border: none; color: white; outline: none; padding: 5px;">
-            <button onclick="sendMessage()" style="background: transparent; border: none; color: #38bdf8; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
-</div>
+        // Login Functions
+        function openLogin() { document.getElementById('login-modal').style.display = 'block'; }
+        function closeLogin() { document.getElementById('login-modal').style.display = 'none'; alert("Ma'lumotlar saqlandi! Tez orada tasdiqlash xabari keladi."); }
 
-<script>
-    function toggleChat() {
-        const window = document.getElementById('chat-window');
-        window.style.display = window.style.display === 'none' ? 'block' : 'none';
-    }
-
-    function sendMessage() {
-        const input = document.getElementById('user-input');
-        const content = document.getElementById('chat-content');
-        if(input.value.trim() !== "") {
-            content.innerHTML += `<p style="text-align: right; color: #818cf8;"><strong>Siz:</strong> ${input.value}</p>`;
-            // AI javobi (simulyatsiya)
-            setTimeout(() => {
-                content.innerHTML += `<p><strong>AI:</strong> So'rovingiz qabul qilindi. Hozirda global bazadan sizga mos ma'lumotlarni qidiryapman...</p>`;
-                content.scrollTop = content.scrollHeight;
-            }, 1000);
-            input.value = "";
-            content.scrollTop = content.scrollHeight;
+        // Chat Functions
+        function toggleChat() { 
+            const win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'none' ? 'block' : 'none';
         }
-    }
-</script>
+
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const content = document.getElementById('chat-content');
+            const text = input.value.toLowerCase();
+            if(text.trim() != "") {
+                content.innerHTML += `<p style="text-align:right; color:#818cf8;">Siz: ${input.value}</p>`;
+                let response = "Kechirasiz, men bu savolga javob topolmadim. Loyiha haqida so'rang.";
+                if(text.includes("salom")) response = "Assalomu alaykum! Sizga qanday yordam bera olaman?";
+                if(text.includes("nima")) response = "Yangi Dunyo - bu kelajak imkoniyatlari platformasi.";
+                if(text.includes("ish")) response = "Hozirda 5 ta yangi vakansiya mavjud. Ro'yxatdan o'ting.";
+                
+                setTimeout(() => {
+                    content.innerHTML += `<p>AI: ${response}</p>`;
+                    content.scrollTop = content.scrollHeight;
+                }, 600);
+                input.value = "";
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
