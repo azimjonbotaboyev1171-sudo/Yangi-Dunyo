@@ -78,6 +78,47 @@
             }
         });
     </script>
+    <div id="ai-chat" style="position: fixed; bottom: 20px; right: 20px; width: 300px; z-index: 1000;">
+    <button onclick="toggleChat()" style="background: linear-gradient(90deg, #38bdf8, #818cf8); border: none; width: 60px; height: 60px; border-radius: 50%; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); float: right;">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <div id="chat-window" style="display: none; background: #1e293b; border: 1px solid #38bdf8; border-radius: 15px; margin-bottom: 70px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <div style="background: #38bdf8; padding: 15px; color: white; font-weight: bold;">
+            🤖 Yangi Dunyo AI
+        </div>
+        <div id="chat-content" style="height: 250px; padding: 15px; overflow-y: auto; font-size: 14px; color: #f8fafc;">
+            <p><strong>AI:</strong> Salom! Men "Yangi Dunyo" tizimining aqlli yordamchisiman. Sizga qanday ish yoki bilim topib beray?</p>
+        </div>
+        <div style="padding: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex;">
+            <input id="user-input" type="text" placeholder="Savol yozing..." style="flex: 1; background: transparent; border: none; color: white; outline: none; padding: 5px;">
+            <button onclick="sendMessage()" style="background: transparent; border: none; color: #38bdf8; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleChat() {
+        const window = document.getElementById('chat-window');
+        window.style.display = window.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('user-input');
+        const content = document.getElementById('chat-content');
+        if(input.value.trim() !== "") {
+            content.innerHTML += `<p style="text-align: right; color: #818cf8;"><strong>Siz:</strong> ${input.value}</p>`;
+            // AI javobi (simulyatsiya)
+            setTimeout(() => {
+                content.innerHTML += `<p><strong>AI:</strong> So'rovingiz qabul qilindi. Hozirda global bazadan sizga mos ma'lumotlarni qidiryapman...</p>`;
+                content.scrollTop = content.scrollHeight;
+            }, 1000);
+            input.value = "";
+            content.scrollTop = content.scrollHeight;
+        }
+    }
+</script>
 </body>
 </html>
+
 
